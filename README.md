@@ -1,4 +1,5 @@
 # aws-ec2-ses
+
 Setup sendmail to use AWS SES Service send Email on EC2 instance.
 
 ## Installation
@@ -13,7 +14,7 @@ sudo sh aws-ec2-ses/install.sh
 aws-ec2-ses-setup needs to be run under root.
 
 ```
-macos-aws-ses-setup
+aws-ec2-ses-setup
 	-d SES_DOMAIN
 	-r REGION
 	-u SMTP_USERNAME
