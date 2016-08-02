@@ -74,7 +74,7 @@ yum install -y m4 sendmail-cf || exit
 # /etc/mail/authinfo
 echo "Modifying /etc/mail/authinfo"
 cat > /etc/mail/authinfo << EOF || exit
-AuthInfo:email-smtp.${REGION}.amazonaws.com "U:root" "I:${USERNAME}" "P:${PASSWORD}" "M:${SMTP_AUTH_METHOD}"
+AuthInfo:email-smtp.${REGION}.amazonaws.com "U:root" "I:${SMTP_USERNAME}" "P:${SMTP_PASSWORD}" "M:${SMTP_AUTH_METHOD}"
 EOF
 
 # /etc/mail/authinfo.db
