@@ -108,8 +108,8 @@ FEATURE(masquerade_entire_domain)dnl
 # /etc/mail/sendmail.mc
 echo "Modifying /etc/mail/sendmail.mc"
 inject_to_file -c "$config" -f /etc/mail/sendmail.mc \
-               -p after \
-               -a "^MAILER" \
+               -p before \
+               -b "^MAILER" \
                -m "$mark_begin" \
                -n "$mark_end" \
                -x "$mark_begin" \
