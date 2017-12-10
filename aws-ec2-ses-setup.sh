@@ -110,13 +110,13 @@ FEATURE(masquerade_entire_domain)dnl
 
 # /etc/mail/sendmail.mc
 echo "Modifying /etc/mail/sendmail.mc"
-inject_to_file -c "$config" -f /etc/mail/sendmail.mc \
-               -p before \
-               -b "^MAILER" \
-               -m "$mark_begin" \
-               -n "$mark_end" \
-               -x "$mark_begin" \
-               -y "$mark_end" || exit
+inject -c "$config" -f /etc/mail/sendmail.mc \
+       -p before \
+       -b "^MAILER" \
+       -m "$mark_begin" \
+       -n "$mark_end" \
+       -x "$mark_begin" \
+       -y "$mark_end" || exit
 
 # /etc/mail/sendmail.cf
 echo "Generating /etc/mail/sendmail.cf"
@@ -128,7 +128,7 @@ service sendmail restart || exit
 # Send test Email to verify the installation
 if [[ -n $TEST_EMAIL_SEND_TO ]]; then
     echo "Sending test Email to $TEST_EMAIL_SEND_TO"
-    sendmail -F "${PROGNAME}" -f "no-reply@$SES_DOMAIN" -t "$TEST_EMAIL_SEND_TO" << EOF
+    sendmail -F "$PROGNAME" -f "no-reply@$SES_DOMAIN" -t << EOF
 Subject: ${PROGNAME} test Email
 To: $TEST_EMAIL_SEND_TO
 This is a test Email sent from AWS EC2 instance through AWS SES SMTP service.
