@@ -1,15 +1,18 @@
 # aws-ec2-ses
 
-Setup sendmail to use AWS SES Service send Email on EC2 instance.
+Setup Sendmail to use a configured AWS SES Service send Email on EC2
+instance.
+
+About how to configure AWS SES on the AWS cloud side, refer to [AWS SES document](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/quick-start.html).
 
 ## Installation
 
 ```
 git clone https://github.com/alexzhangs/aws-ec2-ses
-sudo sh aws-ec2-ses/install.sh
+sudo bash aws-ec2-ses/install.sh
 ```
 
-## Usage
+## Configuration
 
 aws-ec2-ses-setup needs to be run under root.
 
