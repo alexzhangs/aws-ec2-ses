@@ -3,7 +3,11 @@
 Setup Sendmail to use a configured AWS SES Service send Email on EC2
 instance.
 
-About how to configure AWS SES on the AWS cloud side, refer to [AWS SES document](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/quick-start.html).
+This repo is referring to:
+[Integrating Amazon SES with Sendmail](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-sendmail.html).
+
+About how to configure AWS SES on the AWS cloud side, refer to
+[AWS SES document](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/quick-start.html).
 
 ## Installation
 
@@ -18,40 +22,47 @@ aws-ec2-ses-setup needs to be run under root.
 
 ```
 aws-ec2-ses-setup
-	-d SES_DOMAIN
-	-r REGION
-	-u SMTP_USERNAME
-	-p SMTP_PASSWORD
+    -d SES_DOMAIN
+    -r REGION
+    -u SMTP_USERNAME
+    -p SMTP_PASSWORD
     -m SMTP_AUTH_METHOD
-	[-t TEST_EMAIL_SEND_TO]
-	[-h]
+    [-t TEST_EMAIL_SEND_TO]
+    [-h]
 
 OPTIONS
-	-d SES_DOMAIN
+    -d SES_DOMAIN
 
-	Domain setup in AWS SES.
+    Domain setup in AWS SES.
 
-	-r REGION
+    -r REGION
 
-	AWS Region used by SES.
+    AWS Region used by SES.
 
-	-u SMTP_USERNAME
+    -u SMTP_USERNAME
 
-	Username of AWS SES SMTP.
+    Username of AWS SES SMTP.
 
-	-p SMTP_PASSWORD
+    -p SMTP_PASSWORD
 
-	Username of AWS SES SMTP.
+    Username of AWS SES SMTP.
 
     -m SMTP_AUTH_METHOD
 
-    SMTP authentication method.
+    SMTP authentication method. The only method supported by AWS SES
+    is 'PLAIN' by now (2019-07).
 
-	[-t TEST_EMAIL_SEND_TO]
+    [-t TEST_EMAIL_SEND_TO]
 
-	An Email address to test this setup.
+    An Email address to test this setup.
 
-	[-h]
+    [-h]
 
-	This help.
+    This help.
+```
+
+Example:
+
+```
+aws-ec2-ses-setup -d <yourdomain.com> -r us-west-2 -u <smtp_username> -p <smtp_password> -m PLAIN
 ```
