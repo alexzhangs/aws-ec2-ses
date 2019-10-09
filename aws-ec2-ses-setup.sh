@@ -31,7 +31,7 @@ usage () {
     printf "\tUsername of AWS SES SMTP.\n\n"
 
     printf "\t-m SMTP_AUTH_METHOD\n\n"
-    printf "\tSMTP authentication method.\n\n"
+    printf "\tSMTP authentication method. The only method supported by AWS SES is 'PLAIN' by now (2019-07).\n\n"
 
     printf "\t[-t TEST_EMAIL_SEND_TO]\n\n"
     printf "\tAn Email address to test this setup.\n\n"
