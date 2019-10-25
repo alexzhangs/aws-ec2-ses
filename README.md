@@ -1,5 +1,7 @@
 # aws-ec2-ses
 
+## **This project is depracated and the feature is moved to project [xsh-lib/aws](https://github.com/xsh-lib/aws), and can be called as `xsh ses/ec2/setup`.**
+
 Setup Sendmail to use a configured AWS SES Service send Email on EC2
 instance.
 
